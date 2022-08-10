@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Press Start 2P", cursive;
+}
+.main {
+  background: #222;
+  height: calc((var(--vh)) * 100);
+  width: calc((var(--vw)) * 100);
+
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-head {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+[class$="btn"] {
+  border: none;
+  padding: 2rem 3rem;
+  font-size: 2rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+[class$="btn"]:hover {
+  background-color: #ccc;
+}
+
+.main-head-content {
+  font-size: 1.4rem;
+}
+.main-block {
+  text-align: center;
+}
+.main-title {
+  font-size: 4rem;
+  padding: 1.6rem;
+}
+.main-show-number {
+  position: relative;
+  z-index: 1;
+}
+.main-show-number-content {
+  font-size: 6.4rem;
+  background-color: #eee;
+  display: inline-block;
+  padding: 2.5rem 4.5rem;
+  color: #333;
+}
+
+.main-show-number-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  transform: translateY(-50%);
+  background-color: #eee;
+  display: inline-block;
+  height: 1rem;
+  width: 100%;
+}
+
+.main-content {
+  margin-top: 4rem;
+  display: flex;
+
+  justify-content: space-around;
+}
+
+.main-content > div {
+  display: flex;
+  flex-direction: column;
+}
+.main-content-input {
+  align-items: center;
+}
+.main-input {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background-color: inherit;
+  border: 0.4rem solid #eee;
+  color: #eee;
+  text-align: center;
+  font-size: 4.8rem;
+  width: 25rem;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.main-content-data {
+  font-size: 2.2rem;
+}
+
+.main-content-score-container {
+  margin-top: 5.4rem;
+  margin-bottom: 2.4rem;
+}
