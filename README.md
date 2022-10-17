@@ -1,6 +1,6 @@
 This game was made throughout the course utilising the ***CSS, HTML, and Vanilla Js*** tech stack.
-This game, named  ***Guess the number***, is quite straightforward and simply requires you to guess a number between 1 and 20 (both included).
-The game will then indicate if your guess is higher or lower than the original number.
+This game, named  ***Guess the number***, is quite straightforward and simply requires you to guess a number between 1 and 20 (both included).<br>
+The game will then indicate if your guess is higher or lower than the original number.<br>
 You have five chances to properly guess the number.
 
 # Some of the screenshots of the game
