@@ -3,6 +3,8 @@ This game, named  ***Guess the number***, is quite straightforward and simply re
 The game will then indicate if your guess is higher or lower than the original number.<br>
 You have ***five chances*** to properly guess the number.
 
+***CodePen link:***https://codepen.io/vipulgoel30/full/abGwyEN
+
 # Some of the screenshots of the game
 
 ![Screenshot3](https://github.com/vipulgoel30/Guess-Number/blob/6f7c05d871d8e7e1c5b873a4e7cd38dd14f31efd/SnapShots/Screenshot3.png)
