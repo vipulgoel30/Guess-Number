@@ -21,12 +21,12 @@ const main = document.querySelector(".main");
 const mainContentHighscore = document.querySelector(".main-content-highscore");
 const mainContentRemarks = document.querySelector(".main-content-remarks");
 const mainInput = document.querySelector(".main-input");
-
+const mainContentCheckBtn = document.querySelector(".main-content-check-btn");
 let mainNumber = Math.floor(Math.random() * 20) + 1;
-let score = 20;
+let score = 5;
 let highscore = 0;
 
-function setRemarksColor(color) {
+function setRemarksColor(color = "#fff") {
   mainContentRemarks.style.color = color;
 }
 // AGAIN Button
@@ -35,16 +35,18 @@ document
   .addEventListener("click", function () {
     mainNumber = Math.floor(Math.random() * 20) + 1;
     mainShowNumberContent.innerHTML = "?";
-    mainContentScore.innerHTML = 20;
-    score = 20;
+    mainContentScore.innerHTML = 5;
+    score = 5;
     main.style.background = "#222";
     mainContentRemarks.innerHTML = "Start guessing...";
     mainInput.value = undefined;
+    mainContentCheckBtn.disabled = false;
+    mainInput.disabled = false;
   });
 
-document
-  .querySelector(".main-content-check-btn")
+mainContentCheckBtn
   .addEventListener("click", function () {
+
     const data = Number(mainInput.value);
     if (!data) {
       mainContentRemarks.textContent = "Please enter some value!";
@@ -54,7 +56,7 @@ document
     }
     if (data === mainNumber) {
       main.style.background = "#60b347";
-      setRemarksColor("#fff")
+      setRemarksColor()
       mainContentRemarks.innerHTML = "🎉 You won";
       mainShowNumberContent.innerHTML = mainNumber;
       if (score > highscore) {
@@ -71,6 +73,15 @@ document
       mainContentScore.innerHTML = score;
       mainContentRemarks.innerHTML = "📉 Too Low";
       setRemarksColor("blue")
+    }
+
+    if (score === 0) {
+      mainContentRemarks.textContent = "You have lost the game!";
+      setRemarksColor();
+      main.style.background = "linear-gradient(to right,red,rgb(230,0,0))";
+      mainShowNumberContent.innerHTML = mainNumber;
+      this.disabled = true;
+      mainInput.disabled = true;
     }
   });
 
