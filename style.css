@@ -74,10 +74,9 @@ body {
 }
 
 .main-content {
-  margin-top: 4rem;
   display: flex;
-
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 5rem 12rem 0 12rem;
 }
 
 .main-content > div {

@@ -1,6 +1,7 @@
 "use strict";
 
 // height selector
+
 function width_heightCalculator() {
   var vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", vh + "px");
@@ -12,68 +13,64 @@ width_heightCalculator();
 window.addEventListener("resize", width_heightCalculator);
 window.addEventListener("orientationchange", width_heightCalculator);
 
-// for printing and changing data
-const printData = function (placeholder, value) {
-  document.querySelector(`.main-content-${placeholder}`).textContent = value;
-};
+const mainShowNumberContent = document.querySelector(
+  ".main-show-number-content"
+);
+const mainContentScore = document.querySelector(".main-content-score");
+const main = document.querySelector(".main");
+const mainContentHighscore = document.querySelector(".main-content-highscore");
+const mainContentRemarks = document.querySelector(".main-content-remarks");
+const mainInput = document.querySelector(".main-input");
 
-const backgroundChange = (color) => {
-  document.querySelector("body").backgroundChange = `${color}`;
-};
-
-// starting setting
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
-console.log(secretNumber);
+let mainNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
-let highScore = 0;
+let highscore = 0;
 
-// check btn functionality
-document
-  .querySelector(".main-content-check-btn")
-  .addEventListener("click", function () {
-    const guess = Number(document.querySelector(".main-input").value);
-    if (!guess) {
-      printData("remarks", "⛔ No number");
-    } else {
-      if (guess === secretNumber) {
-        printData("remarks", "🎉 You won!");
-        backgroundChange("#60b347");
-
-        printData("score", score);
-        printData("content", secretNumber);
-        if (score > highScore) {
-          highScore = score;
-          printData("highscore", highScore);
-        }
-      } else {
-        if (score > 1) {
-          score--;
-          printData(
-            "remarks",
-            guess > secretNumber ? "📈 Too High" : "📉 Too Low"
-          );
-          printData("score", score);
-        } else {
-          printData("remarks", "😥 You lost the game");
-          backgroundChange("red");
-
-          printData("content", secretNumber);
-          printData("score", "0");
-        }
-      }
-    }
-  });
-
-//again button functionality
+function setRemarksColor(color) {
+  mainContentRemarks.style.color = color;
+}
+// AGAIN Button
 document
   .querySelector(".main-head-again-btn")
   .addEventListener("click", function () {
+    mainNumber = Math.floor(Math.random() * 20) + 1;
+    mainShowNumberContent.innerHTML = "?";
+    mainContentScore.innerHTML = 20;
     score = 20;
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-    backgroundChange("#222");
-
-    document.querySelector(".main-input").value = "";
-    printData("remarks", "Start guessing...");
-    printData("score", score);
-    printData("content", "?");
+    main.style.background = "#222";
+    mainContentRemarks.innerHTML = "Start guessing...";
+    mainInput.value = undefined;
   });
+
+document
+  .querySelector(".main-content-check-btn")
+  .addEventListener("click", function () {
+    const data = Number(mainInput.value);
+    if (!data) {
+      mainContentRemarks.textContent = "Please enter some value!";
+
+      setRemarksColor("red");
+      return 0;
+    }
+    if (data === mainNumber) {
+      main.style.background = "#60b347";
+      setRemarksColor("#fff")
+      mainContentRemarks.innerHTML = "🎉 You won";
+      mainShowNumberContent.innerHTML = mainNumber;
+      if (score > highscore) {
+        highscore = score;
+        mainContentHighscore.innerHTML = highscore;
+      }
+    } else if (data > mainNumber) {
+      score--;
+      mainContentScore.innerHTML = score;
+      mainContentRemarks.innerHTML = "📈 Too High";
+      setRemarksColor("orangered")
+    } else {
+      score--;
+      mainContentScore.innerHTML = score;
+      mainContentRemarks.innerHTML = "📉 Too Low";
+      setRemarksColor("blue")
+    }
+  });
+

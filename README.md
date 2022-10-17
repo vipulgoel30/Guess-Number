@@ -1,1 +1,1 @@
-
+This is the project created during the course with the tech stack using css,html and vanilla Js
