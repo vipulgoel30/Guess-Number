@@ -15,6 +15,8 @@ You have five chances to properly guess the number.
 
 
 ![Screenshot 2](https://github.com/vipulgoel30/Guess-Number/blob/984d881ddfa935c34c163fe95550e84cfca66f81/SnapShots/Screenshot%202.png)
+
+
 ![Screenshot 5](https://github.com/vipulgoel30/Guess-Number/blob/71f6869c75d20c6fbb2e7691b3d7a9f897a5245d/SnapShots/Screenshot%205.png)
 
 
