@@ -8,8 +8,20 @@
 html {
   font-size: 62.5%;
 }
+
 body {
   font-family: "Press Start 2P", cursive;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 .main {
   background: #222;
